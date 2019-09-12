@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.jeecg.modules.custom.helper.mj.mapper.MjPlayerGameMapper">
+
+	<delete id="deleteByMainId" parameterType="java.lang.String">
+		DELETE 
+		FROM  mj_player_game 
+		WHERE
+			 player_id = #{mainId} 	</delete>
+	
+	<select id="selectByMainId" parameterType="java.lang.String" resultType="org.jeecg.modules.custom.helper.mj.entity.MjPlayerGame">
+		SELECT * 
+		FROM  mj_player_game
+		WHERE
+			 player_id = #{mainId} 	</select>
+
+	<select id="countConf" parameterType="org.jeecg.modules.custom.helper.mj.entity.MjPlayerGame" resultType="java.lang.Integer">
+		SELECT COUNT(1) from mj_player_game
+		WHERE player_id = #{pg.playerId}
+		and game_id = #{pg.gameId}
+	</select>
+</mapper>

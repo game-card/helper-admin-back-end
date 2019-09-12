@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.jeecg.modules.custom.helper.mj.mapper.MjAccountMapper">
+
+    <select id="selectOnline" resultType="org.jeecg.modules.custom.helper.mj.entity.MjAccount">
+      SELECT * FROM mj_account
+      WHERE status = '5'
+    </select>
+
+</mapper>

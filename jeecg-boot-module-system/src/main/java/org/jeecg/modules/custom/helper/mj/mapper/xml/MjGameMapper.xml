@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.jeecg.modules.custom.helper.mj.mapper.MjGameMapper">
+
+    <select id="selectOnline" parameterType="org.jeecg.modules.custom.helper.mj.entity.MjGame" resultType="org.jeecg.modules.custom.helper.mj.entity.MjGame">
+        SELECT * from mj_game
+        WHERE  `status` = #{game.status}
+        ORDER BY sort DESC;
+    </select>
+
+    <select id="selectByPlayerId" parameterType="java.lang.String" resultType="org.jeecg.modules.custom.helper.mj.entity.MjGame">
+      SELECT g.* from mj_game g,mj_player_game pg
+        WHERE g.id = pg.game_id
+        AND g.status = '1'
+        and pg.player_id = #{playerId}
+    </select>
+
+</mapper>
